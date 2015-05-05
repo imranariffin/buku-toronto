@@ -10,20 +10,20 @@
   <body>
   	<% include templates/header.ejs %>
 	<div class="container">
-	    <h1>Summary <%= title %></h1>
+	    <h1><%= title %></h1>
 	    <br>
 	    <p>This summary page will show how many books that each member targets to read this summer</p>
 	    <br>
 	    <table class="table table-hover">
 			<tr>
 				<th>Name</th>
-				<th>Target</th>
+				<th>Score</th>
 			</tr>
 	    
-	    	<% persons.data.forEach(function(person) { %>
+	    	<% users.data.forEach(function(user) { %>
 	    		<tr>
-	    			<td><%= person.name %></td>
-	    			<td><%= person.target %></td>
+	    			<td><%= user.name %></td>
+	    			<td><%= user.score %></td>
 	    		</tr>
 	    	<% }); %>
 	    </table>
