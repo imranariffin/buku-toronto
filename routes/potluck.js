@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://heroku_app36536831:nirdvg3k5j0p5i804g1u3k5nkc@ds031832.mongolab.com:31832/heroku_app36536831')
-var db = mongoose.connection;
+// mongoose.connect('mongodb://heroku_app36536831:nirdvg3k5j0p5i804g1u3k5nkc@ds031832.mongolab.com:31832/heroku_app36536831')
+// var db = mongoose.connection;
 mongoose.disconnect();
 
 // db.on('error', console.error.bind(console, 'connection error:'));
@@ -30,7 +30,7 @@ var persons = {
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('index', 
+    res.render('potluck', 
                 {
                     title: 'UT Darul Hikmah',
                     persons: persons,

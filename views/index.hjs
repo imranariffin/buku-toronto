@@ -1,31 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
   </head>
   <body>
-  	<% include templates/header.ejs %>
+  
+  {{>navbar}}
+  <li class="active"><a href="/">Summary <span class="sr-only">(current)</span></a></li>
+        <li><a href="/users">Members Rank</a></li>
+        <li><a href="/potluck">Potluck</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
 	<div class="container">
-	    <h1><%= title %></h1>
+	    <h1>Summary {{title}}</h1>
 	    <br>
 	    <p>This summary page will show how many books that each member targets to read this summer</p>
 	    <br>
 	    <table class="table table-hover">
 			<tr>
 				<th>Name</th>
-				<th>Score</th>
+				<th>Target</th>
 			</tr>
 	    
-	    	<% users.data.forEach(function(user) { %>
-	    		<tr>
-	    			<td><%= user.name %></td>
-	    			<td><%= user.score %></td>
-	    		</tr>
-	    	<% }); %>
+	    {{#persons.data}}
+				<tr>
+					<td>{{name}}</td>
+					<td>{{target}}</td>
+				</tr>
+	    {{/persons.data}}
 	    </table>
 	</div>
   	
